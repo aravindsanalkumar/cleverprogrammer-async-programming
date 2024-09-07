@@ -25,13 +25,28 @@ console.log(
 
 
 const getSoup = async () => {
+    
+    const data = {
+        rating:0,
+        tip:0,
+        pay:0,
+        review:0
+    }
+    
     try{
         const soup = await promise1;
-
+        data.rating = 5;
+        data.tip = .2;
+        data.pay = 10;
         console.log('async soup funtion');
         consol.log(soup);
+        return data;
     }catch(error){
         console.log(error);
+        data.rating = 1;
+        data.tip = 0;
+        data.pay = 0;
+        return data;
     }
 }
 
@@ -49,3 +64,7 @@ const getDog =async () => {
 }
 
 getDog();
+
+const sum = async (a,b) => a + b;
+
+console.log(sum(5,2).then(value => console.log(value)))
