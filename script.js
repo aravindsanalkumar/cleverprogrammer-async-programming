@@ -16,12 +16,26 @@ const promise1 = new Promise((resolve,reject) => {
 });
 
 
+
 console.log(
     promise1
         .then(value => console.log(value))
         .catch(value => console.log(value))
 );
 
+
+const getSoup = async () => {
+    try{
+        const soup = await promise1;
+
+        console.log('async soup funtion');
+        consol.log(soup);
+    }catch(error){
+        console.log(error);
+    }
+}
+
+getSoup();
 
 fetch('https://dog.ceo/api/breeds/image/random')
 .then(response => response.json())
